@@ -40,6 +40,7 @@ import org.junit.rules.ExpectedException;
 
 import static org.junit.Assert.*;
 
+import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -216,7 +217,7 @@ public class SolutionTest {
     }
     
     @Test
-    public void testSuccessfulReadCDOfferingFromString(){
+    public void testSuccessfulReadCDOfferingFromString() {
         CDOffering cdOffering = CDOffering.readFromString("3,0.019");
         
         assertEquals(3, cdOffering.getTerm());
@@ -224,7 +225,7 @@ public class SolutionTest {
     }
     
     @Test
-    public void testFailedReadCDOfferingFromString1(){
+    public void testFailedReadCDOfferingFromString1()  {
     	exceptionRule.expect(NumberFormatException.class);
         CDOffering cdOffering = CDOffering.readFromString("30.019");
         
@@ -337,7 +338,7 @@ public class SolutionTest {
     }
     
     @Test
-    public void testFailedReadFromFile() {    	
+    public void testFailedReadFromFile()  {    	
     	boolean result = MeritBank.readFromFile("src/test/testMeritBank_good.txt");
     	assertEquals(true, result);
     	
